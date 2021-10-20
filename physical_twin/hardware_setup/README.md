@@ -4,19 +4,24 @@
 - [Prerequisites](#Prerequisites)
 - [Hardware setup](#Hardware_setup)
 	- [Raspberry Pi](#Raspberry)
+	- [ArduinoUno](#ArduinoUno)
 	- [Sensor CCS811](#ccs811)
 	- [Sensor SCD30](#scd30)
 - [Initial Setup of Raspberry OS](#Initial_Setup_of_Raspberry_OS)
+- [Initial Setup of Arduino Uno](#Initial_Setup_of_Arduino_Uno)
 - [Send Sensor data to cloud](#Send_Sensor_data_to_cloud)
 	- [Required Libraries for the project](#libraries)
 	- [Remote access via SSH](#ssh)
 	- [Deploy Code to Raspberry](#Deploy)
 	- [Deploy Code to multiple Raspberries](#DeployMultiDevice)
+	- [Deploy Code to a Single ArduinoUno](#DeployArduinoUno)
+	- [Deploy Code to Multiple Arduinos](#DeployMultiArduino)
 	- [Sending data to IoT-hub](#Sending)
 - [Possilble Frequent Errors](#Possilble_Frequent_Errors)
 
 ## <a name="Prerequisites"></a>Prerequisites
 - Raspberry and accessories
+- Arduino and accessories
 - CCS811 and DHT11 Sensors
 - Electronics like resistors, LED lights 
 - Bread board and connection wires
@@ -24,7 +29,7 @@
 ## <a name="Hardware_setup"></a>Hardware setup
 ### <a name="Raspberry"></a>Raspberry Pi
  We ue [Raspberry Pi 4](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) boards. Raspberry is a dedicated computer with all neccesary functions just like an ordinary pc.  The raspberry sends measured co2 values to the cloud and is also used to command the treshold triggers if the values reach above the limit by changing the color of the LED or by Beeping sounds. 
- <img src='https://cdn.idealo.com/folder/Product/6628/1/6628198/s2_produktbild_max/raspberry-pi-4-model-b.jpg'  width=400 />
+ 
  
  An alternative would be NVIDIA's [Jetson Nano](https://developer.nvidia.com/embedded/jetson-nano-developer-kit). However in this project a Raspberry is used and for this following hardware for setting up the raspberry is needed:
 - (Fully Integrated) Raspberry Pi 4 - Board
@@ -35,11 +40,29 @@
 - Keyboard (for initialization)
 - Micro-HDMI to HDMI cable (for initialization)
 
+ 
+### <a name="Arduino"></a>Arduino Uno 
+ We are using [Arduino Uno](https://store.arduino.cc/products/arduino-uno-rev3) boards. An Arduino board is a microcontroller based on ATmega328P. However since we want to code in python on Arduino but Arduino is based on a simplified version of c++ language, we first need to upload a StandardFirmata protocoll on to the Arduino. For this it is also important to download the [Arduino IDE](https://www.arduino.cc/en/software) dependent on the operating system you are using. After the installation is complete, then the StandardFirmata can be uploaded on to the Arduino IDE as is shown on the picture below:   
+ 
+ <img src='https://github.com/derlehner/IndoorAirQuality_DigitalTwin_Exemplar/blob/refactor-and-api/physical_twin/hardware_setup/images/screenshot_setting_arduino.PNG'  width=400 />'  
+ 
+ The complete hardware setup (together with the CO2 sensor) of the Arduino can be seen on the image below:
+ 
+  <img src='https://github.com/derlehner/IndoorAirQuality_DigitalTwin_Exemplar/blob/refactor-and-api/physical_twin/hardware_setup/images/arduino_setup.jpeg'  width=400 />
+  
+ The following accessories are needed for setting up an Arduino:
+ - Power adapter for Arduino Uno
+ - Arduino Ethernet 2 Shield
+ - Laptop or some hardware to upload the code on to the Arduino
+ - Data cable 
+ 
+
+
 ### <a name="ccs811"></a>Sensor CCS811 
 - This [Adafruit CCS811](https://joy-it.net/en/products/SEN-CCS811V1) sensor is using the I2C protocol
 - It has Measurement range: 400 ppm – 8192 ppm for $CO^2$ values
 - To get valid data a initial burn-in of 48 hours and a warm-up time of 20 min is recommended.
-- There are datasheet and manual available at the homepage of joy-it. The manual also includes an example of how to access the sensor in code. A short summery is available in (subsection - 1.6.4) datasheet documentation and manual are located at the repository for further information.
+- There are datasheet and manual available at the homepage of joy-it. The manual also includes an example of how to access the sensor in code. A short summary is available in (subsection - 1.6.4) datasheet documentation and manual are located at the repository for further information.
 - Wiring scheme:
  
 | sensor pin 	| Raspi pin  	|
@@ -48,7 +71,7 @@
 | gnd        	| Ground     	|
 | sda        	| data line  	|
 | scl        	| clock line 	|
-| Rst        	| Reset port 	|
+| Rst        	| Reset port 	| 
 
 ### <a name="scd30"></a>Sensor SCD30
 -  SCD30 - Sensor Module for HVAC and Indoor Air Quality Applications. it has Integrated temperature and humidity sensor
@@ -104,6 +127,9 @@ Afterward the Raspberry Pi needs to be restarted and logged in with the new pass
 sudo apt-get update
 sudo apt-get upgrade
 ```
+## <a name="Initial_Setup_of_Arduino_Uno"></a>Initial Setup of Arduino Uno
+For the software setup of the Arduino Uno, run the datacollection.py file to which the SCD30SensorArduino.py is connected. 
+
 ## <a name="Send_Sensor_data_to_cloud"></a>Send Sensor data to cloud
 ### <a name="libraries"></a>Required Libraries for the project
 
