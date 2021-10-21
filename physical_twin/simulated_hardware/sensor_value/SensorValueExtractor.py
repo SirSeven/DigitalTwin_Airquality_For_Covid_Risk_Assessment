@@ -1,7 +1,6 @@
 from sensors import ISensor
 from . import SensorValueType
 
-
 class SensorValueExtractor:
 
     def __init__(self, sensor:ISensor, propertyName: str, propertyValueType: SensorValueType):

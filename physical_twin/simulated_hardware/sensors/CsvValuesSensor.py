@@ -3,7 +3,6 @@ import csv
 from sensor_value.SensorValueType import SensorValueType
 from . import ISensor
 
-
 class CsvValuesSensor(ISensor):
 
     def __init__(self, configObject):

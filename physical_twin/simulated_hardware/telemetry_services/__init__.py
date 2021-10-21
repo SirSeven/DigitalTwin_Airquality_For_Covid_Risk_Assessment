@@ -1,3 +1,3 @@
-from .TelemetryService import TelemetryService
+from .ITelemetryService import ITelemetryService
 from .AzureIoTHubService import AzureIoTHubService
 from .TimeScaleService import TimeScaleService

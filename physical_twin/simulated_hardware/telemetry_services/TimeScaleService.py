@@ -1,8 +1,8 @@
 import requests
-from . import TelemetryService
+from . import ITelemetryService
 
 
-class TimeScaleService(TelemetryService):
+class TimeScaleService(ITelemetryService):
     # url="http://140.78.155.6:5000/api/sensordata"
     
     headers = {

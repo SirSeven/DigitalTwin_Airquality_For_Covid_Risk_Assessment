@@ -1,6 +1,6 @@
 import json
 
-class TelemetryService:
+class ITelemetryService:
     
     def send_data(self, device_id, sensor_id, sensor_data):
         pass

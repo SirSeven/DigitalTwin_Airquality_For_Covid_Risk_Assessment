@@ -1,7 +1,7 @@
 from azure.iot.device.iothub.sync_clients import IoTHubDeviceClient, Message
-from . import TelemetryService
+from . import ITelemetryService
 
-class AzureIoTHubService(TelemetryService):
+class AzureIoTHubService(ITelemetryService):
     
     def __init__(self, connectionString):
         self.iotHubConnection = IoTHubDeviceClient.create_from_connection_string(connectionString)
