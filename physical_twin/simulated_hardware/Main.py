@@ -4,9 +4,6 @@ from telemetry_services import AzureIoTHubService
 from sensors import CsvValuesSensor
 
 if __name__ == '__main__':
-    print("IoT Hub Quickstart #1 - Simulated Sensor Data")
-    print("Press Ctrl-C to exit")
-
     sensor = CsvValuesSensor({
         'Name': 'test-sensor',
         'CsvFilePath': 'sensorData.csv'

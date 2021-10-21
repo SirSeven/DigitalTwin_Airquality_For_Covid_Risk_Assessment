@@ -5,7 +5,8 @@ from sensors import ISensor
 from sensor_value import SensorValueExtractor
 
 def send_device_telemetry(telemetryService: ITelemetryService, device_id: str, sensorCollection):
-    print("IoT Hub device sending periodic messages, press Ctrl-C to exit")
+    print("Starting sending device telemetry.")
+    print("Press Ctrl-C to exit")
 
     try:
         while True:
@@ -25,4 +26,4 @@ def send_device_telemetry(telemetryService: ITelemetryService, device_id: str, s
             time.sleep(3)
 
     except KeyboardInterrupt:
-        print("IoTHubClient sample stopped")
+        print("device telemetry sending stopped")
