@@ -1,7 +1,7 @@
 import sys
 import json
 import importlib
-from .DeviceSensorsService import DeviceSensorsService
+import DeviceSensorsService
 from sensor_value.SensorValueExtractor import SensorValueExtractor
 from sensor_value.SensorValueType import SensorValueType
 from telemetry_services import AzureIoTHubService
