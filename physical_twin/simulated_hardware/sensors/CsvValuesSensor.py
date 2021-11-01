@@ -1,4 +1,5 @@
 import csv
+from datetime import datetime, timezone
 
 from sensor_value.SensorValueType import SensorValueType
 from . import ISensor
@@ -18,6 +19,7 @@ class CsvValuesSensor(ISensor):
         self.currentSensorData = data
 
         self.index += 1
+        self.data_timestamp = datetime.utcnow().replace(tzinfo=timezone.utc)
 
     def get_data(self, sensorProperty : SensorValueType):
         if(sensorProperty == SensorValueType['TEMPERATURE']):
@@ -31,6 +33,9 @@ class CsvValuesSensor(ISensor):
 
     def get_name(self):
         return self.name
+
+    def get_data_timestamp(self):
+        return self.data_timestamp
 
     def __parse_csv(self, csvFilePath):
         # read csv file

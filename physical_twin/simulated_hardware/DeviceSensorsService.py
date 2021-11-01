@@ -18,12 +18,11 @@ def send_device_telemetry(telemetryService: ITelemetryService, device_id: str, s
                 for sensorValueExtractor in sensorObj['valueExtractors']:
                     sensor_data = sensorValueExtractor.get_value()
 
-                    sensor_data_str = json.dumps({sensor_data['property_name']: sensor_data['property_value']})
-                    print(f"Sending message: {sensor_data_str}")
-                    telemetryService.send_data(device_id, sensor_data['sensor_id'], sensor_data_str)
-                    print("Message successfully sent")
+                    print(f"Sending message: {sensor_data['sensor_id']}, {sensor_data['property_name']}, {sensor_data['property_value']}, {sensor_data['timestamp']}")
+                    telemetryService.send_data(device_id, sensor_data['sensor_id'],sensor_data['property_name'], sensor_data['timestamp'], sensor_data['property_value'])
 
             time.sleep(3)
+            input()
 
     except KeyboardInterrupt:
         print("device telemetry sending stopped")
