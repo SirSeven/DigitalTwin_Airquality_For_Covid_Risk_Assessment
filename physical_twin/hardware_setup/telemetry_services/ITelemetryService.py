@@ -1,14 +1,8 @@
 import json
+from datetime import datetime
+
 
 class ITelemetryService:
-    
-    def send_data(self, device_id, sensor_id, sensor_data):
+
+    def send_data(self, device_id: str, sensor_id: str, sensor_property_name: str, data_timestamp: datetime, sensor_data: str):
         pass
-
-    def __sensor_data_to_json(self, sensor_data):
-        data_object = {}
-        for sensor_data_entry in sensor_data:
-            data_object[sensor_data_entry['property_name']] = sensor_data_entry['value']
-
-        json_object = json.dumps(data_object)
-        return json_object

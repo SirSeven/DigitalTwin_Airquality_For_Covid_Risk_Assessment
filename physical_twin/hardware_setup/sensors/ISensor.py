@@ -10,3 +10,6 @@ class ISensor:
 
     def get_name(self):
         pass
+
+    def get_data_timestamp(self):
+        pass

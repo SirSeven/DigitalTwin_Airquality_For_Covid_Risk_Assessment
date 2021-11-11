@@ -12,5 +12,6 @@ class SensorValueExtractor:
         return {
             'sensor_id': self.sensor.get_name(),
             'property_name': self.propertyName,
-            'property_value': self.sensor.get_data(self.propertyValueType)
+            'property_value': self.sensor.get_data(self.propertyValueType),
+            'timestamp': self.sensor.get_data_timestamp()
         }
