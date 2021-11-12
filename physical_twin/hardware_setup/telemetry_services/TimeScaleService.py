@@ -1,8 +1,11 @@
-import json
 import requests
+from datetime import datetime
 from . import ITelemetryService
 
+
 class TimeScaleService(ITelemetryService):
+    # url="http://140.78.155.6:5000/api/sensordata"
+    
     headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -11,8 +14,7 @@ class TimeScaleService(ITelemetryService):
     def __init__(self, targetUrl):
         self.url = targetUrl
 
-    def send_data(self, device_id, sensor_id, sensor_data):
-
+    def send_data(self, device_id: str, sensor_id: str, sensor_property_name: str, data_timestamp: datetime, sensor_data):
         jsonObjects = sensor_data
         jsonObjects['roomnumber'] = device_id
         jsonObjects['sensorname'] = sensor_id

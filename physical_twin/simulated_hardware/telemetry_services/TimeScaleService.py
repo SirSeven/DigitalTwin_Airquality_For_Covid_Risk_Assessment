@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 from . import ITelemetryService
 
 
@@ -13,7 +14,7 @@ class TimeScaleService(ITelemetryService):
     def __init__(self, targetUrl):
         self.url = targetUrl
 
-    def send_data(self, device_id, sensor_id, sensor_data):
+    def send_data(self, device_id: str, sensor_id: str, sensor_property_name: str, data_timestamp: datetime, sensor_data):
 
         # no clue how this should work! device_id is missing also in the initial implementation
         json_object = self.__sensor_data_to_json(sensor_data)
