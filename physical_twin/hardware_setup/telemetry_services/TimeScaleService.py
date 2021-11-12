@@ -13,11 +13,9 @@ class TimeScaleService(ITelemetryService):
 
     def send_data(self, device_id, sensor_id, sensor_data):
 
-        jsonObjects = {
-            'roomnumber': device_id,
-            'sensorname': sensor_id,
-            sensor_data['property_name']: sensor_data['property_value']
-        }
+        jsonObjects = sensor_data
+        jsonObjects['roomnumber'] = device_id
+        jsonObjects['sensorname'] = sensor_id
 
         json_object = json.dumps(jsonObjects)
         postdata = requests.post(
