@@ -1,10 +1,11 @@
 import time
 import json
+from conditions import JsonPathConditionService
 from telemetry_services import ITelemetryService
 from sensors import ISensor
 from sensor_value import SensorValueExtractor
 
-def send_device_telemetry(telemetryService: ITelemetryService, device_id: str, sensorCollection):
+def send_device_telemetry(telemetryService: ITelemetryService, jsonPathConditionService: JsonPathConditionService, device_id: str, sensorCollection):
     print("Starting sending device telemetry.")
     print("Press Ctrl-C to exit")
 
@@ -18,8 +19,9 @@ def send_device_telemetry(telemetryService: ITelemetryService, device_id: str, s
                 for sensorValueExtractor in sensorObj['valueExtractors']:
                     sensor_data = sensorValueExtractor.get_value()
 
-                    print(f"Sending message: {sensor_data['sensor_id']}, {sensor_data['property_name']}, {sensor_data['property_value']}, {sensor_data['timestamp']}")
-                    telemetryService.send_data(device_id, sensor_data['sensor_id'],sensor_data['property_name'], sensor_data['timestamp'], sensor_data['property_value'])
+                    if jsonPathConditionService.validate(sensor_data['sensor_id'], sensor_data['property_name'], sensor_data['property_value']):
+                        print(f"Sending message: {sensor_data['sensor_id']}, {sensor_data['property_name']}, {sensor_data['property_value']}, {sensor_data['timestamp']}")
+                        telemetryService.send_data(device_id, sensor_data['sensor_id'],sensor_data['property_name'], sensor_data['timestamp'], sensor_data['property_value'])
 
             time.sleep(3)
 

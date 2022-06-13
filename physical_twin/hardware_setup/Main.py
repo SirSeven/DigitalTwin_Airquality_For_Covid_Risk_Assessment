@@ -2,17 +2,13 @@ import sys
 import json
 import importlib
 import DeviceSensorsService
+from conditions.JsonPathConditionService import JsonPathConditionService
+from conditions.NullConditionService import NullConditionService
+from helpers import JsonHelper
 from sensor_value.SensorValueExtractor import SensorValueExtractor
 from sensor_value.SensorValueType import SensorValueType
 from telemetry_services import AzureIoTHubService
 from sensors import ISensor
-
-def readJsonFromFile(file_path: str) -> object:
-    file = open(file_path)
-    file_content = file.read()
-    file.close()
-    data = json.loads(file_content)
-    return data
 
 def getSensor(sensorConfigJson) -> ISensor:
     module = importlib.import_module(sensorConfigJson['Module'])
@@ -27,8 +23,14 @@ if __name__ == '__main__':
     configFilePath = "config.json"
     if(len(sys.argv) > 1):
         configFilePath = sys.argv[1]
+        
+    if(len(sys.argv) > 2):
+        validationsFilePath = sys.argv[2]
+        conditionService = JsonPathConditionService(validationsFilePath)
+    else:
+        conditionService = NullConditionService()
 
-    config = readJsonFromFile(configFilePath)
+    config = JsonHelper.readJsonFromFile(configFilePath)
     connection_string = config['connectionStrings']['azureIoTHub']
     device_id = config['twin']['id']
 
@@ -47,4 +49,4 @@ if __name__ == '__main__':
 
     azureIoTHub_telemetry_service = AzureIoTHubService(connection_string)
 
-    DeviceSensorsService.send_device_telemetry(azureIoTHub_telemetry_service, device_id, sensorCollection)
+    DeviceSensorsService.send_device_telemetry(azureIoTHub_telemetry_service, conditionService, device_id, sensorCollection)
