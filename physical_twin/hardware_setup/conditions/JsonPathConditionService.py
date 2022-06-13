@@ -2,9 +2,10 @@ from sys import stdout
 from jsonpath_ng.ext import parse
 from actions import IAction, LogAction
 from actions.ActionResolver import ActionResolver
+from conditions.IConditionService import IConditionService
 from helpers import JsonHelper
 
-class JsonPathConditionService():
+class JsonPathConditionService(IConditionService):
 
     def __init__(self, pathToConditionsFile):
         obj = JsonHelper.readJsonFromFile(pathToConditionsFile)
