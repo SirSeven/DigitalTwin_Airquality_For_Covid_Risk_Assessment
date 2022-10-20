@@ -29,7 +29,7 @@ if __name__ == '__main__':
     timer.start()
 
     startingTime = datetime.utcnow()
-    print(f"Starting time: {startingTime}") 
+    #print(f"Starting time: {startingTime}") 
 
     sensor = CsvValuesSensor({
         'Name': 'Sensor',
@@ -52,6 +52,6 @@ if __name__ == '__main__':
     timer.cancel()
 
     stoppingTime = datetime.utcnow()
-    print(f"Stopping time: {stoppingTime}.")
+    #print(f"Stopping time: {stoppingTime}.")
     processingTimeSec = (stoppingTime-startingTime).total_seconds()
     print(f"Processed {DelayedTelemetryService.messagesProcessed} msg in {processingTimeSec} sec. {round(DelayedTelemetryService.messagesProcessed/processingTimeSec,2)} msg/sec")

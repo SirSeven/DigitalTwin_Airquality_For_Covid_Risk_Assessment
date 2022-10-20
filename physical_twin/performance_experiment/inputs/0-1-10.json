@@ -1,0 +1,17 @@
+{
+    "validators":{
+        "Sensor":  [
+            {"jsonPathQuery": "$.*[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": [
+                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "0"}},
+                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "1"}},
+                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "2"}},
+                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "3"}},
+                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "4"}},
+                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "5"}},
+                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "6"}},
+                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "7"}},
+                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "8"}},
+                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "9"}}
+            ]}]
+    }
+}

@@ -9,8 +9,8 @@ class DeviceSensorsService:
         self.cont = True
 
     def send_device_telemetry(self, telemetryService: ITelemetryService, jsonPathConditionService: JsonPathConditionService, device_id: str, sensorCollection):
-        print("Starting sending device telemetry.")
-        print("Press Ctrl-C to exit")
+        #print("Starting sending device telemetry.")
+        #print("Press Ctrl-C to exit")
 
         try:
             while self.cont:
@@ -28,8 +28,8 @@ class DeviceSensorsService:
         except KeyboardInterrupt:
             print("device telemetry sending stopped")
 
-        print("Stopped sending device telemetry.")
+        #print("Stopped sending device telemetry.")
 
     def stop(self):
-        print("Stopping sending device telemetry.")
         self.cont = False
+        #print("Stopping sending device telemetry.")
