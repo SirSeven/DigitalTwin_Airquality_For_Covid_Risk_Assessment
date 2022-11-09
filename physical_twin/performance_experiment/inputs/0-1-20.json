@@ -2,26 +2,26 @@
     "validators":{
         "Sensor":  [
             {"jsonPathQuery": "$.*[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": [
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "0"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "1"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "2"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "3"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "4"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "5"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "6"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "7"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "8"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "9"}},
-				{"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "10"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "11"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "12"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "13"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "14"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "15"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "16"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "17"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "18"}},
-                {"type": "LogActionImpl", "config": {"logLevel": "Information", "message": "19"}}
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+				{"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}},
+                {"type": "DelayActionImpl", "config": {"delayInMilliseconds": 10}}
             ]}]
     }
 }
