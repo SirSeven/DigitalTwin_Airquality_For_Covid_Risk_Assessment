@@ -22,7 +22,7 @@ class JsonPathConditionService(IConditionService):
             if self.is_float(propertyValue):
                 propertyValue = float(propertyValue)
 
-            message = {"obj":[{"Property": property, "Value": propertyValue}]}
+            message = [{"Property": property, "Value": propertyValue}]
 
             for validatorConfig in validatorConfigs:
                 # performance optimizing through lazy initialization of jsme path query
