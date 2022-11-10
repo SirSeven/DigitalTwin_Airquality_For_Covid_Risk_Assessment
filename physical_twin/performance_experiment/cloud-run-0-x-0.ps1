@@ -1,7 +1,7 @@
 $appResourceName = "at-davemar-master-thesis";
 $appResourceGroup = "master-thesis";
-$inputs ="inputs/0-90-0.json","inputs/0-10-0.json","inputs/0-20-0.json","inputs/0-30-0.json","inputs/0-40-0.json","inputs/0-50-0.json","inputs/0-60-0.json","inputs/0-70-0.json","inputs/0-80-0.json","inputs/0-90-0.json","inputs/0-100-0.json";
-#"inputs/0-0-0.json", 
+$inputs ="inputs/0-0-0.json","inputs/0-10-0.json","inputs/0-20-0.json","inputs/0-30-0.json","inputs/0-40-0.json","inputs/0-50-0.json","inputs/0-60-0.json","inputs/0-70-0.json","inputs/0-80-0.json","inputs/0-90-0.json","inputs/0-100-0.json";
+
 function Get-ApplicationInsightQueryResult {
     param ($Timestamp)
     $apiKey="45nhs0aqctb10yaoupmdamd7pvsskaad5lxfl5yn";
@@ -17,7 +17,7 @@ $inputs | foreach {
     az appconfig kv import -s file --format json --path $_ --separator : --content-type application/json -y -n $appResourceName --only-show-errors
     az appconfig kv set --key Validators:Settings:Sentinel --value $(Get-Date -Format "o") -y -n $appResourceName --only-show-errors
     
-    az functionapp restart --name $appResourceName --resource-group $appResourceGroup;
+    Start-Sleep -Seconds 300;
 
     ##warm up
     python Main-cloud.py;

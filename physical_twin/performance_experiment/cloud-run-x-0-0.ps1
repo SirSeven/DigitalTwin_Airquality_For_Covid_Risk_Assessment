@@ -17,7 +17,7 @@ $inputs | foreach {
     az appconfig kv import -s file --format json --path $_ --separator : --content-type application/json -y -n $appResourceName --only-show-errors
     az appconfig kv set --key Validators:Settings:Sentinel --value $(Get-Date -Format "o") -y -n $appResourceName --only-show-errors
     
-    az functionapp restart --name $appResourceName --resource-group $appResourceGroup;
+    Start-Sleep -Seconds 300;
 
     ##warm up
     python Main-cloud.py;
