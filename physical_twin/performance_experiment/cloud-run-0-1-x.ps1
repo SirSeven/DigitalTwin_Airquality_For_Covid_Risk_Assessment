@@ -1,4 +1,4 @@
-$appResourceName = "at-davemar-master-thesis";
+$appResourceName = "at-davemar-dipl-master-thesis";
 $appResourceGroup = "master-thesis";
 $inputs ="inputs/0-1-10.json","inputs/0-1-20.json","inputs/0-1-30.json","inputs/0-1-40.json","inputs/0-1-50.json","inputs/0-1-60.json","inputs/0-1-70.json","inputs/0-1-80.json","inputs/0-1-90.json","inputs/0-1-100.json";
 

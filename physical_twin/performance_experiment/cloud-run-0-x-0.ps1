@@ -1,6 +1,6 @@
-$appResourceName = "at-davemar-master-thesis";
+$appResourceName = "at-davemar-dipl-master-thesis";
 $appResourceGroup = "master-thesis";
-$inputs ="inputs/0-0-0.json","inputs/0-10-0.json","inputs/0-20-0.json","inputs/0-30-0.json","inputs/0-40-0.json","inputs/0-50-0.json","inputs/0-60-0.json","inputs/0-70-0.json","inputs/0-80-0.json","inputs/0-90-0.json","inputs/0-100-0.json";
+$inputs = "inputs/0-0-0.json","inputs/0-10-0.json","inputs/0-20-0.json","inputs/0-30-0.json","inputs/0-40-0.json","inputs/0-50-0.json","inputs/0-60-0.json","inputs/0-70-0.json","inputs/0-80-0.json","inputs/0-90-0.json","inputs/0-100-0.json";
 
 function Get-ApplicationInsightQueryResult {
     param ($Timestamp)
