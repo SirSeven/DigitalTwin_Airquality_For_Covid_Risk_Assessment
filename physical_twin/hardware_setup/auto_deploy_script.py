@@ -45,13 +45,15 @@ def create_dir(source, ip_ad, username, password, device_name):
 # List of Raspberries that the Files to be transfered with its details
 # Args_Format:  <source file/path>, <ip_address>, <host_user_id>, <password>, <device_name>
 
-rasp01 = ['/impl_python', '140.78.42.104', 'pi', 'cdl', 'Raspi01']
-# arduiono1 = ['/impl_c++', '140.78.42.104', 'pi', 'cdl', 'Arduino01']
+rasp01 = ['/impl_python', '140.78.42.104', 'pi', 'cdl', 'Rasp01']
+arduiono1 = ['/impl_c++', '140.78.42.104', 'pi', 'cdl', '']
+# ADD MORE RASPBERRY HERE AS THE EXAMPLE SHOWN IN NEXT LINE
+#rasp02 = ['haridir', '192.168.0.136', 'pi', 'cdl', 'Rasp02']
 
 all_raspberries =[rasp01] # dont forget to mention here all rasp## here as list
 for each_raspberry in all_raspberries:
     source, ip_ad, username, password , device_name= each_raspberry
     create_dir(source, ip_ad, username, password, device_name)
     copy_files(source, ip_ad, username, password, device_name)
-    run_data_collection(source, ip_ad, username, password)
-# sys.exit()
+    run_data_collection(ip_ad, username, password)
+sys.exit()

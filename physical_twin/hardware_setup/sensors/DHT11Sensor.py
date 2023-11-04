@@ -2,15 +2,15 @@ import time
 import board
 import adafruit_dht
 
-class sensor_DHT11:
+from . import ISensor
+
+class DHT11Sensor(ISensor):
     def __init__(self):
         # pin assignment
         # initialize sensor values
         self.temperature = 0.0
         self.humidity = 0.0
         self.dhtDevice = adafruit_dht.DHT11(board.D22, use_pulseio = False)
-        
-        
 
     def update_telemetry(self):
         humi = None

@@ -3,7 +3,9 @@ import busio
 import board
 import time
 
-class sensor_CCS811:
+from . import ISensor
+
+class CCS811Sensor(ISensor):
 
     def __init__(self):
         # initialize sensor values

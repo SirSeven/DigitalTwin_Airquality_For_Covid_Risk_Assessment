@@ -7,53 +7,30 @@ To run the script use python 3 with all the pacakages installed
 import time
 from datetime import datetime
 from azure.iot.device import IoTHubDeviceClient, Message
-from sensor_DHT11 import sensor_DHT11
-from sensor_CCS811 import sensor_CCS811
+from sensors import SCD30Sensor
+from telemetry_services import TimeScaleService
 from scd30_i2c import SCD30
-import digital_twin_api
 import urllib3
 import sys
 import requests
 import json
 urllib3.disable_warnings()
 
+# TODO: discuss about iothub connection string (same for timescale)
 
-#The device connection string to authenticate the device with your IoT hub.
-CONNECTION_STRING_CCS811 = "<specify the connection string>"
-CONNECTION_STRING_SCD_30 = "<specify the connection string>"
-
-
-### messages format or IoT Hub  ###
-# TODO: could be parameterized
-MSG_TXT_CCS811 = '{{"temperature": {temperature},"co2Value": {eco2},"tvoc": {tvoc}}}'
-MSG_TXT_RASPI = '{{"alarmC02": {alarmCO2}}}'
-
-# could be parameterized
 SLEEP_TIME = 2
+DEVICE_ID = "raspi01"
+with open('device_id.txt', 'r') as f:
+    DEVICE_ID = f.readline()
+sensors = [SCD30Sensor("port", "Sensor1", "co2", "azure_connection_string"), SCD30Sensor("port", "Sensor1", "temperature", "azure_connection_string")]
+dt_service = TimeScaleService('http://140.78.155.6:5000/api/sensordata') # alternatively: AzureService()
 
-'''
-This parameterised function used to post the data to the server
-'''
-def post_SensorData_Server(co2, temp, hum, sensor_name, room_number):
-    jsonObjects={}
-    url="http://140.78.155.6:5000/api/sensordata"
-    headers = {
-    'Content-Type':'application/json', 
-    'Accept':'application/json'}
+for sensor in sensors:
+    timestamp, value = sensor.get_value()
+    dt_service.send_data(DEVICE_ID, sensor.sensor_name, sensor.property_name, timestamp, value) 
 
-    co2,temp,hum=raspi_sensordata.split(',')
-    jsonObjects['sensorname']='scd30'       # SENSOR NAME
-    jsonObjects['roomnumber']='s30076'      # ROOM NUMBER
-    jsonObjects['co2']=float(co2)           # CO2 VALUE
-    jsonObjects['temperature']=float(temp)  # Temp VALUE
-    jsonObjects['humidity']=float(hum)      # Hum VALUE
-    jsonformat=json.dumps(jsonObjects)      # DUMPING DATA TO BE SENT
-    postdata=requests.post(url,headers=headers,data=jsonformat)     # SENDING THE DATA
-    if postdata.status_code==201:
-        print('Sensor data sending successfully....')
-    else:
-        print(postdata.text+'Failed to post Sensor data to server!')
-    return response
+# TODO: everything below this line should be in a different file, or deleted
+
 
 '''
 This funciton used to connect to azure service using connection string

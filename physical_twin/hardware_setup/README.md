@@ -4,9 +4,11 @@
 - [Prerequisites](#Prerequisites)
 - [Hardware setup](#Hardware_setup)
 	- [Raspberry Pi](#Raspberry)
+	- [ArduinoUno](#ArduinoUno)
 	- [Sensor CCS811](#ccs811)
 	- [Sensor SCD30](#scd30)
 - [Initial Setup of Raspberry OS](#Initial_Setup_of_Raspberry_OS)
+- [Initial Setup of Arduino Uno](#Initial_Setup_of_Arduino_Uno)
 - [Send Sensor data to cloud](#Send_Sensor_data_to_cloud)
 	- [Required Libraries for the project](#libraries)
 	- [Remote access via SSH](#ssh)
@@ -16,6 +18,7 @@
 
 ## <a name="Prerequisites"></a>Prerequisites
 - Raspberry and accessories
+- Arduino and accessories
 - CCS811 and DHT11 Sensors
 - Electronics like resistors, LED lights 
 - Bread board and connection wires
@@ -35,11 +38,29 @@
 - Keyboard (for initialization)
 - Micro-HDMI to HDMI cable (for initialization)
 
+ 
+### <a name="Arduino"></a>Arduino Uno 
+ We are using [Arduino Uno](https://store.arduino.cc/products/arduino-uno-rev3) boards. An Arduino board is a microcontroller based on ATmega328P. However since we want to code in python on Arduino but Arduino is based on a simplified version of c++ language, we first need to upload a StandardFirmata protocoll on to the Arduino. For this it is also important to download the [Arduino IDE](https://www.arduino.cc/en/software) dependent on the operating system you are using. After the installation is complete, then the StandardFirmata can be uploaded on to the Arduino IDE as is shown on the picture below:   
+ 
+ <img src='https://github.com/derlehner/IndoorAirQuality_DigitalTwin_Exemplar/blob/refactor-and-api/physical_twin/hardware_setup/images/screenshot_setting_arduino.PNG'  width=400 />'  
+ 
+ The complete hardware setup (together with the CO2 sensor) of the Arduino can be seen on the image below:
+ 
+  <img src='https://github.com/derlehner/IndoorAirQuality_DigitalTwin_Exemplar/blob/refactor-and-api/physical_twin/hardware_setup/images/arduino_setup.jpeg'  width=400 />
+  
+ The following accessories are needed for setting up an Arduino:
+ - Power adapter for Arduino Uno
+ - Arduino Ethernet 2 Shield
+ - Laptop or some hardware to upload the code on to the Arduino
+ - Data cable 
+ 
+
+
 ### <a name="ccs811"></a>Sensor CCS811 
 - This [Adafruit CCS811](https://joy-it.net/en/products/SEN-CCS811V1) sensor is using the I2C protocol
 - It has Measurement range: 400 ppm – 8192 ppm for CO<sub>2</sub> values
 - To get valid data a initial burn-in of 48 hours and a warm-up time of 20 min is recommended.
-- There are datasheet and manual available at the homepage of joy-it. The manual also includes an example of how to access the sensor in code. A short summery is available in (subsection - 1.6.4) datasheet documentation and manual are located at the repository for further information.
+- There are datasheet and manual available at the homepage of joy-it. The manual also includes an example of how to access the sensor in code. A short summary is available in (subsection - 1.6.4) datasheet documentation and manual are located at the repository for further information.
 - Wiring scheme:
 
  
