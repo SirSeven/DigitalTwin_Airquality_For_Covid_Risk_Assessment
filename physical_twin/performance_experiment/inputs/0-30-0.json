@@ -1,0 +1,35 @@
+{
+    "validators":{
+        "Sensor":  [
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []},
+            {"jsonPathQuery": "$[?(@.Property=='temp'&&@.Value>=1)]", "continue": true, "actions": []}]
+    }
+}

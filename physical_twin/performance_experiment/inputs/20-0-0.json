@@ -1,0 +1,24 @@
+{
+    "validators":{
+        "Sensor0":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor1":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor2":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor3":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor4":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor5":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor6":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor7":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor8":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor9":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor10":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor11":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor12":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor13":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor14":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor15":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor16":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor17":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor18":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}],
+        "Sensor19":  [{"jsonPathQuery": "$.obj[?(@.Property=='co2Value'&&@.Value>=100)]", "continue": true, "actions": []}]
+    }
+}
