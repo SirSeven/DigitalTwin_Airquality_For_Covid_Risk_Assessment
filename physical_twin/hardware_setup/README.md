@@ -4,7 +4,7 @@
 - [Prerequisites](#Prerequisites)
 - [Hardware setup](#Hardware_setup)
 	- [Raspberry Pi](#Raspberry)
-	- [ArduinoUno](#ArduinoUno)
+	- [Raspberry Pico](#RaspberryPico)
 	- [Sensor CCS811](#ccs811)
 	- [Sensor SCD30](#scd30)
 - [Initial Setup of Raspberry OS](#Initial_Setup_of_Raspberry_OS)
@@ -38,23 +38,11 @@
 - Keyboard (for initialization)
 - Micro-HDMI to HDMI cable (for initialization)
 
- 
-### <a name="Arduino"></a>Arduino Uno 
- We are using [Arduino Uno](https://store.arduino.cc/products/arduino-uno-rev3) boards. An Arduino board is a microcontroller based on ATmega328P. However since we want to code in python on Arduino but Arduino is based on a simplified version of c++ language, we first need to upload a StandardFirmata protocoll on to the Arduino. For this it is also important to download the [Arduino IDE](https://www.arduino.cc/en/software) dependent on the operating system you are using. After the installation is complete, then the StandardFirmata can be uploaded on to the Arduino IDE as is shown on the picture below:   
- 
- <img src='https://github.com/derlehner/IndoorAirQuality_DigitalTwin_Exemplar/blob/refactor-and-api/physical_twin/hardware_setup/images/screenshot_setting_arduino.PNG'  width=400 />'  
- 
- The complete hardware setup (together with the CO2 sensor) of the Arduino can be seen on the image below:
- 
-  <img src='https://github.com/derlehner/IndoorAirQuality_DigitalTwin_Exemplar/blob/refactor-and-api/physical_twin/hardware_setup/images/arduino_setup.jpeg'  width=400 />
-  
- The following accessories are needed for setting up an Arduino:
- - Power adapter for Arduino Uno
- - Arduino Ethernet 2 Shield
- - Laptop or some hardware to upload the code on to the Arduino
- - Data cable 
- 
 
+#### <a name="RaspberryPico"></a>Raspberry Pico
+ Another alternative to the Raspberry Pi 4 would be using the Raspberry Pico which is slightly cheaper than the Raspberry Pico. 
+ 
+<img src='https://github.com/derlehner/IndoorAirQuality_DigitalTwin_Exemplar/blob/main/physical_twin/hardware_setup/images/pin_layout.jpg'>
 
 ### <a name="ccs811"></a>Sensor CCS811 
 - This [Adafruit CCS811](https://joy-it.net/en/products/SEN-CCS811V1) sensor is using the I2C protocol
